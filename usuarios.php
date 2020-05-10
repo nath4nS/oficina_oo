@@ -28,35 +28,27 @@ $usuarios = $usuarioDAO->listar();
 	<table class="table table-hover table-bordered table-striped">
 		<thead>
 			<tr>
-				<th></th>
-				<th>#ID</th>
 				<th>Nome</th>
-				<th>Sexo</th>
 				<th>E-mail</th>
+				<th>CPF</th>
+				<th>Celular</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php foreach($usuarios as $usuario){ ?>
 			<tr>
-				<td class="text-center">
-					<img src="/assets/img/usuarios/<?= ($usuario->getImagem() != '' && file_exists('assets/img/usuarios/'.$usuario->getImagem()) ? $usuario->getImagem() : 'usuario.png') ?>" alt="" width="50" class="rounded-circle">
-				</td>
-				<th><?= $usuario->getId() ?></th>
 				<td><?= $usuario->getNome() ?></td>
-				<td><?= $usuario->getSexo() ?></td>
 				<td><?= $usuario->getEmail() ?></td>
+				<td><?= $usuario->getCpf() ?></td>
+				<td><?= $usuario->getCelular() ?></td>
 				<td align="center">
-					<a href="form_usuario.php?id=<?= $usuario->getId() ?>" class="btn btn-warning">
+					<a href="form_usuario.php?id=<?= $usuario->getId() ?>" class="btn btn-warning" data-toggle="tooltip" title="Editar usuário">
 						<i class="fas fa-user-edit"></i>
 					</a> | 
-					<a href="controle_usuario.php?acao=deletar&id=<?= $usuario->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger">
+					<a href="controle_usuario.php?acao=deletar&id=<?= $usuario->getId() ?>" onclick="return confirm('Deseja realmente excluir?')" class="btn btn-danger" data-toggle="tooltip" title="Remover usuário">
 						<i class="fas fa-trash-alt"></i>
 					</a> 
-					| 
-					<a href="controle_usuario.php?acao=removeImagem&id=<?= $usuario->getId() ?>" onclick="return confirm('Deseja realmente remover a imagem?')" class="btn btn-danger">
-						<i class="fas fa-user-times"></i>
-					</a>
 				</td>
 			</tr>
 			<?php } ?>

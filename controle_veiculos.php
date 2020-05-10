@@ -27,7 +27,7 @@ if($acao == 'deletar') {
 
 	$id = $veiculoDAO->insereVeiculo($veiculo);
 	$msg = 'Veículo cadastrado com sucesso';
-	header("Location: form_produto.php?id=$id&msg=$msg");
+	header("Location: form_veiculos.php?id=$id&msg=$msg");
 
 } else if($acao == 'editar') {
 	$id = $_POST['id'];
@@ -35,10 +35,10 @@ if($acao == 'deletar') {
 	$veiculo->setModelo($_POST['modelo']);
 	$veiculo->setAno($_POST['ano']);
 	$veiculo->setPlaca($_POST['placa']);
-	//print_r($produto); exit;
+	//print_r($veiculos); exit;
 
-	$veiculoDAO->alteraProduto($veiculo);
+	$veiculoDAO->alteraVeiculo($veiculo);
 	$msg = 'Veículos alterado com sucesso';
 
-	header("Location: form_produto.php?id=$id&msg=$msg");
+	header("Location: form_veiculos.php?id=$id&msg=$msg");
 }

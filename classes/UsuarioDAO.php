@@ -15,27 +15,28 @@ class UsuarioDAO extends Model
     public function insereUsuario(Usuario $usuario)
     {
     	$values = "null, '{$usuario->getNome()}',
-                         '{$usuario->getSexo()}',
                          '{$usuario->getEmail()}',
                          '{$usuario->getSenha()}',
-                         '{$usuario->getImagem()}'";
+                         '{$usuario->getCpf()}',
+                         '{$usuario->getCelular()}'";
     	return $this->inserir($values);
     }
     public function alteraUsuario(Usuario $usuario)
     {
-    	$altera_senha = ($usuario->getSenha() != '' ? ", senha = '{$usuario->getSenha()}'" : '');
-        $altera_imagem = ($usuario->getImagem() != '' ? ", imagem = '{$usuario->getImagem()}'" : '');
+    	/*$altera_senha = ($usuario->getSenha() != '' ? ", senha = '{$usuario->getSenha()}'" : '');*/
+        /*$altera_imagem = ($usuario->getImagem() != '' ? ", imagem = '{$usuario->getImagem()}'" : '');*/
 
     	$values = " nome = '{$usuario->getNome()}', 
-                    sexo = '{$usuario->getSexo()}',
-                    email = '{$usuario->getEmail()}'
-                    {$altera_imagem}
+                    email = '{$usuario->getEmail()}',
+                    senha = '{$usuario->getSenha()}',
+                    cpf = '{$usuario->getCpf()}',
+                    celular = '{$usuario->getCelular()}'
 			        {$altera_senha}";
 
     	$this->alterar($usuario->getId(), $values);
     }
 
-    public function getLogin($email, $senha)
+/*    public function getLogin($email, $senha)
     {
     	$sql = "SELECT * FROM {$this->tabela} 
                 WHERE email = :email AND senha = :senha";
@@ -45,5 +46,5 @@ class UsuarioDAO extends Model
     	$stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
     	$stmt->execute();
     	return $stmt->fetch();
-    }
+    }*/
 }

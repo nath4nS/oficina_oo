@@ -3,10 +3,10 @@ class Usuario
 {
 	private $id;
 	private $nome;
-    private $sexo;
+    private $email;
 	private $senha;
-	private $email;
-    private $imagem;
+	private $cpf;
+    private $celular;
 
     /**
      * @return mixed
@@ -51,19 +51,19 @@ class Usuario
     /**
      * @return mixed
      */
-    public function getSexo()
+    public function getEmail()
     {
-        return $this->sexo;
+        return $this->email;
     }
 
     /**
-     * @param mixed $sexo
+     * @param mixed $email
      *
      * @return self
      */
-    public function setSexo($sexo)
+    public function setEmail($email)
     {
-        $this->sexo = $sexo;
+        $this->email = $email;
 
         return $this;
     }
@@ -91,19 +91,19 @@ class Usuario
     /**
      * @return mixed
      */
-    public function getEmail()
+    public function getCpf()
     {
-        return $this->email;
+        return $this->cpf;
     }
 
     /**
-     * @param mixed $email
+     * @param mixed $cpf
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setCpf($cpf)
     {
-        $this->email = $email;
+        $this->cpf = $cpf;
 
         return $this;
     }
@@ -111,19 +111,19 @@ class Usuario
     /**
      * @return mixed
      */
-    public function getImagem()
+    public function getCelular()
     {
-        return $this->imagem;
+        return $this->celular;
     }
 
     /**
-     * @param mixed $imagem
+     * @param mixed $celular
      *
      * @return self
      */
-    public function setImagem($imagem)
+    public function setCelular($celular)
     {
-        $this->imagem = $imagem;
+        $this->celular = $celular;
 
         return $this;
     }
