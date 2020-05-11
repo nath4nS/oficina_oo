@@ -3,7 +3,7 @@
 <?php 
 	require 'classes/Veiculo.php';
 	require 'classes/VeiculoDAO.php';
-	$veiculo = new VeiculoDAO();
+	$veiculo = new Veiculo();
 	if(isset($_GET['id']) && $_GET['id'] != '') {
 		$id = $_GET['id'];
 		$veiculoDAO = new VeiculoDAO();
@@ -37,7 +37,7 @@
 				</div>
 				<div class="form-group">
 					<label for="placa">Placa:</label>
-					<input type="password" name="placa" id="placa" class="form-control" required value="<?= ($veiculo->getPlaca() != '' ? $veiculo->getPlaca() : ''); ?>">
+					<input type="text" name="placa" id="placa" class="form-control" required value="<?= ($veiculo->getPlaca() != '' ? $veiculo->getPlaca() : ''); ?>">
 				</div>		
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Salvar</button>
